@@ -1,0 +1,81 @@
+{# Here don't use the shorthand @ModuleName as it won't work #}
+
+{#
+NOTE: you cannot use any variables/twig functionality within the assetic functions below - i.e. using variables to
+dynamically set the output filename for packed css/js files
+ #}
+
+{% block stylesheets %}
+    {% stylesheets
+        'themes/marketingcamp/spoutlet/css/custom.css'
+        'themes/marketingcamp/spoutlet/css/containers.css'
+        'themes/marketingcamp/spoutlet/css/lists-links.css'
+        'themes/marketingcamp/spoutlet/css/mcsv-global.css'
+        'themes/marketingcamp/spoutlet/css/forms.css'
+        'themes/marketingcamp/spoutlet/css/nivo-slider.css'
+        'themes/marketingcamp/spoutlet/css/superfish.css'
+        'plugins/jquery.ad-gallery/jquery.ad-gallery.css'
+        'themes/marketingcamp/spoutlet/css/bootstrap/css/bootstrap.css'
+        'themes/marketingcamp/spoutlet/css/bootstrap/css/bootstrap-responsive.css'
+        'themes/marketingcamp/spoutlet/css/registration.css'
+        'themes/marketingcamp/spoutlet/css/widgets.css'
+        'themes/marketingcamp/spoutlet/css/comments.css'
+        'themes/marketingcamp/spoutlet/css/news.css'
+        'themes/marketingcamp/spoutlet/css/flash.css'
+        'themes/marketingcamp/spoutlet/css/jquery_ui/jquery-ui-1.8.16.custom.css'
+        'bundles/spoutlet/css/jquery.mCustomScrollbar.css'
+        'bundles/spoutlet/css/qtip.css'
+        'themes/marketingcamp/user/css/account.css'
+        filter='cssrewrite'
+        output='css/packed/layout_marketingcamp.css'
+    %}
+    <link type="text/css" rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+
+    {% javascripts
+        'bundles/spoutlet/js/ie8.js'
+        'bundles/spoutlet/js/jquery-1.7.2.min.js'
+        'bundles/spoutlet/js/jquery-ui-1.8.16.custom.min.js'
+        'bundles/spoutlet/js/jquery.ajaxfileupload.js'
+        'bundles/spoutlet/js/jquery.cycle.all.js'
+        'bundles/spoutlet/js/jquery.dropshadow.js'
+        'bundles/spoutlet/js/jquery.qtip.min.js'
+        'bundles/spoutlet/js/jquery.simplemodal.js'
+        'bundles/spoutlet/js/jquery.simpletip.js'
+        'bundles/spoutlet/js/jquery.truncate.min.js'
+        'bundles/spoutlet/js/progressbar.js'
+        'themes/marketingcamp/spoutlet/js/superfish.js'
+        'themes/marketingcamp/spoutlet/js/supersubs.js'
+        'themes/marketingcamp/spoutlet/js/hoverIntent.js'
+        'bundles/spoutlet/js/custom.js'
+        'bundles/spoutlet/js/google-dfp.js'
+        'bundles/spoutlet/js/jquery.countdown.min.js'
+        'bundles/spoutlet/js/jquery.ddslick.min.js'
+        'bundles/spoutlet/alt_js/*'
+        'bundles/comment/js/comments.js'
+        'bundles/spoutlet/js/jquery.timeago.min.js'
+        'ckeditor/ckeditor.js'
+        'ckeditor/config.js'
+        'ckeditor/lang/en.js'
+        'plugins/jquery.ad-gallery/jquery.ad-gallery.js'
+        'bundles/spoutlet/js/jquery.blockUI.js'
+        'bundles/spoutlet/js/nivo-slider/jquery.nivo.slider.pack.js'
+        'themes/marketingcamp/spoutlet/js/datescript.js'
+        'themes/marketingcamp/spoutlet/css/bootstrap/js/bootstrap.js'
+        'bundles/spoutlet/admin/js/jquery.tablesorter.min.js'
+        'bundles/spoutlet/js/jquery.tools.min.js'
+        output='js/packed/layout_marketingcamp.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% if app.user is not null and app.user.adminLevel == "ROLE_SUPER_ADMIN" %}
+        <script type="text/javascript">
+            CKEDITOR.config.customConfig = '/ckeditor/config.admin.js';
+        </script>
+    {% endif %}
+
+{% endblock %}

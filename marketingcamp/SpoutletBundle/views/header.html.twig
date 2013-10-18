@@ -1,0 +1,42 @@
+<div id="header">
+    <div id="topSocial">
+        <ul>
+            <li>Follow us on
+                <a href="http://en.twitter.com/MarketingCampSF" target="_blank"><img src="{{ asset('themes/' ~ site.theme ~ '/spoutlet/img/twitter.png') }}" width="32" height="32" alt="Follow MarketingCamp San Francisco on Twitter"></a>
+                <a href="https://www.facebook.com/MarketingCampSF" target="_blank"><img src="{{ asset('themes/' ~ site.theme ~ '/spoutlet/img/facebook.png') }}" width="32" height="32" alt="Follow MarketingCamp San Francisco on Facebook"></a>
+                <a href="https://plus.google.com/u/0/b/103471940417998857276/103471940417998857276/posts" target="_blank"><img src="{{ asset('themes/' ~ site.theme ~ '/spoutlet/img/google-plus.png') }}" alt="Follow MarketingCamp San Francisco on Google Plus" width="32" height="32"></a>
+                <a href="http://www.linkedin.com/groups/MarketingCamp-Silicon-Valley-4502494?gid=4502494&mostPopular=&trk=tyah" target="_blank"><img src="{{ asset('themes/' ~ site.theme ~ '/spoutlet/img/linkedin.png') }}" width="32" height="32" alt="Follow MarketingCamp San Francisco on Linkedin"></a>
+                <a href="http://www.youtube.com/user/MarketingCamp" target="_blank"><img src="{{ asset('themes/' ~ site.theme ~ '/spoutlet/img/youtube.png') }}" width="32" height="32" alt="Follow MarketingCamp San Francisco on YouTube"></a>
+                <a href="www.flickr.com/photos/MCSV" target="_blank"><img src="{{ asset('themes/' ~ site.theme ~ '/spoutlet/img/flickr.png') }}" width="32" height="32" alt="Follow MarketingCamp San Francisco on Flickr"></a>
+                <a href="http://www.slideshare.net/marketingcampsf" target="_blank"><img src="{{ asset('themes/' ~ site.theme ~ '/spoutlet/img/slideshare.png') }}" width="32" height="32" alt="Follow MarketingCamp San Francisco on Slideshare"></a>
+                <a href="https://foursquare.com/marketingcampsv" target="_blank"><img src="{{ asset('themes/' ~ site.theme ~ '/spoutlet/img/foursquare.png') }}" width="32" height="32" alt="Follow MarketingCamp San Francisco on Four Square"></a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="{{ path('news') }}"><img src="{{ asset('themes/' ~ site.theme ~ '/spoutlet/img/blog-b.png') }}" width="32" height="32" alt=""> <strong>Read Our Blog!</strong></a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="topNav">
+        <ul>
+            {% if app.user is  null %}
+                <li><a href="{{ path('fos_user_security_login') }}">{{ 'platformd.layout.top_menu.sign_in' | trans }}</a></li>
+                <li><a href="{{ path('fos_user_registration_register') }}">{{ 'platformd.layout.top_menu.join' | trans }}</a></li>
+            {% else %}
+                <li><a href="{{ path('_fos_user_security_logout') }}">{{ 'platformd.layout.top_menu.sign_out' | trans }}</a></li>
+                {% if is_granted("ROLE_ADMIN") %}<li><a href="{{ path('admin_index') }}">{{ "platformd.layout.top_menu.admin" | trans }}</a></li>{% endif %}
+                <li><a href="{{ path('accounts_index') }}">{{ 'platformd.layout.top_menu.account' | trans }}</a></li>
+            {% endif %}
+            <li><a href="{{ path('contact') }}">Contact Us</a></li>
+            <li><a href="{{ path('default_index') }}">Home</a></li>
+        </ul>
+    </div>
+
+    <a href="{{ path('default_index') }}"><img src="{{ asset('themes/' ~ site.theme ~ '/spoutlet/img/logo.png') }}" alt="" id="brand"></a>
+
+    <img src="{{ asset('themes/' ~ site.theme ~ '/spoutlet/img/tagline.gif') }}" alt="" width="235" height="31" id="tagline">
+
+    <br class="clr">
+
+</div> <!-- end header -->
+
+

@@ -1,0 +1,16 @@
+{% extends 'SpoutletBundle::layout.html.twig' %}
+
+{% block content %}
+
+    {% include 'SpoutletBundle::content_header.html.twig' %}
+
+    <div id="row1">
+        <div class="cBx1">
+            {% render 'HtmlWidgetBundle:HtmlWidget:show' with { 'slug': 'recent-campout-sessions' } %}
+        </div>
+
+        {% render 'SpoutletBundle:Default:events' %}
+
+    </div>
+
+{% endblock %}
